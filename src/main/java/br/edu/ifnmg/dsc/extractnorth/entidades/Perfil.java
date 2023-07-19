@@ -1,13 +1,25 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Pessoas")
 public class Perfil extends Funcionario{
+
+  /* Attributes */
+  @Column()
   private String atribuicao;
 
-
-  public Perfil(String atribuicao) {
+  /*Constructors */
+   public Perfil(long id, String nome, Long telefone, String email, Endereco endereco, long cpf, boolean status,
+      String atribuicao) {
+    super(id, nome, telefone, email, endereco, cpf, status);
     this.atribuicao = atribuicao;
   }
 
+  /* Getters and Setters */
   public String getAtribuicao() {
     return atribuicao;
   }
@@ -16,6 +28,7 @@ public class Perfil extends Funcionario{
     this.atribuicao = atribuicao;
   }
 
+  /*Java Beans  */
   @Override
   public int hashCode() {
     final int prime = 31;
