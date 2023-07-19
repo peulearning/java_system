@@ -2,11 +2,13 @@ package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 public class Lote {
 
+  /* Attributes */
   private int identificador;
   private String descricao;
   private Produto produto;
   private double quantidade;
 
+  /* Getters and Setters */
   public int getIdentificador() {
     return identificador;
   }
@@ -39,7 +41,7 @@ public class Lote {
     this.quantidade = quantidade;
   }
 
-
+  /* Java Beans */
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -84,6 +86,5 @@ public class Lote {
     return "Lote [identificador=" + identificador + ", descricao=" + descricao + ", produto=" + produto
         + ", quantidade=" + quantidade + "]";
   }
-
 
 }

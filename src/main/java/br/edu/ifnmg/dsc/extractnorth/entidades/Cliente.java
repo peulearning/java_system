@@ -8,7 +8,8 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Pessoas")
-@Getter @Setter
+@Getter
+@Setter
 public class Cliente extends Pessoa {
 
     /* Attributes */
@@ -19,23 +20,19 @@ public class Cliente extends Pessoa {
     @Column(name = "Atividade", length = 255, nullable = false)
     private String atividade;
 
+    /* Constructor */
 
-
-    /*Constructor */
-
-      public Cliente(long id, String nome, Long telefone, String email, Endereco endereco, long cnpj, String atividade) {
+    public Cliente(long id, String nome, Long telefone, String email, Endereco endereco, long cnpj, String atividade) {
         super(id, nome, telefone, email, endereco);
         this.cnpj = cnpj;
         this.atividade = atividade;
     }
 
-      /* Getters And Setters */
+    /* Getters And Setters */
 
     public long getCnpj() {
         return cnpj;
     }
-
-
 
     public void setCnpj(long cnpj) {
         this.cnpj = cnpj;
@@ -49,7 +46,7 @@ public class Cliente extends Pessoa {
         this.atividade = atividade;
     }
 
-    /*Java Beans */
+    /* Java Beans */
 
     @Override
     public int hashCode() {
@@ -84,7 +81,4 @@ public class Cliente extends Pessoa {
         return "Cliente [cnpj=" + cnpj + ", atividade=" + atividade + "]";
     }
 
-
-
 }
-

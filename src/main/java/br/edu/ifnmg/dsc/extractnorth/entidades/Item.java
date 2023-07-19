@@ -2,13 +2,14 @@ package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 import java.util.ArrayList;
 
-
-
 public class Item {
+
+  /* Attributes */
   private int id;
   private double quantidade;
   private ArrayList<String> Produto;
 
+  /* Getters and Setters */
   public int getId() {
     return id;
   }
@@ -33,6 +34,7 @@ public class Item {
     Produto = produto;
   }
 
+  /* Java Beans */
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -46,30 +48,8 @@ public class Item {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Item other = (Item) obj;
-    if (id != other.id)
-      return false;
-    if (Double.doubleToLongBits(quantidade) != Double.doubleToLongBits(other.quantidade))
-      return false;
-    if (Produto == null) {
-      if (other.Produto != null)
-        return false;
-    } else if (!Produto.equals(other.Produto))
-      return false;
-    return true;
-  }
-
-  @Override
   public String toString() {
     return "Item [id=" + id + ", quantidade=" + quantidade + ", Produto=" + Produto + "]";
   }
-
 
 }

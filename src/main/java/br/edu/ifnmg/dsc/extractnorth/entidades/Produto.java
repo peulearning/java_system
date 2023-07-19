@@ -1,16 +1,19 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 public class Produto {
+
+  /* Attributes */
+
   private String nome;
   private double preco;
 
-
-
+  /* Constructor */
   public Produto(String nome, double preco) {
     this.nome = nome;
     this.preco = preco;
   }
 
+  /* Getters and Setters */
   public String getNome() {
     return nome;
   }
@@ -27,6 +30,7 @@ public class Produto {
     this.preco = preco;
   }
 
+  /* Java Beans */
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -61,6 +65,5 @@ public class Produto {
   public String toString() {
     return "Produto [nome=" + nome + ", preco=" + preco + "]";
   }
-
 
 }
