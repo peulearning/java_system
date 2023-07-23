@@ -5,15 +5,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Pessoas")
-public class Perfil extends Funcionario{
+@Table(name = "Perfis")
+public class Perfil extends Funcionario {
 
   /* Attributes */
-  @Column()
+  @Column(length = 255, nullable = false)
   private String atribuicao;
 
-  /*Constructors */
-   public Perfil(long id, String nome, Long telefone, String email, Endereco endereco, long cpf, boolean status,
+  /* Constructors */
+  public Perfil(long id, String nome, Long telefone, String email, Endereco endereco, long cpf, boolean status,
       String atribuicao) {
     super(id, nome, telefone, email, endereco, cpf, status);
     this.atribuicao = atribuicao;
@@ -28,7 +28,7 @@ public class Perfil extends Funcionario{
     this.atribuicao = atribuicao;
   }
 
-  /*Java Beans  */
+  /* Java Beans */
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -58,6 +58,5 @@ public class Perfil extends Funcionario{
   public String toString() {
     return "Perfil [atribuicao=" + atribuicao + "]";
   }
-
 
 }

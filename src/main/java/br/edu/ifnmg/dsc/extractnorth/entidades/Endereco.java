@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Pessoas")
+@Table(name = "Enderecos")
 public class Endereco extends Pessoa {
 
   /* Atttibutes */
@@ -17,7 +17,6 @@ public class Endereco extends Pessoa {
 
   @Column(name = "cidade", length = 255)
   private String cidade;
-
 
   /* Construct */
   public Endereco(long id, String nome, Long telefone, String email, Endereco endereco, String rua, String bairro,
@@ -65,7 +64,6 @@ public class Endereco extends Pessoa {
     return result;
   }
 
-
   @Override
   public boolean equals(Object obj) {
     if (this == obj)
@@ -93,11 +91,9 @@ public class Endereco extends Pessoa {
     return true;
   }
 
-
   @Override
   public String toString() {
     return "Endereco [rua=" + rua + ", bairro=" + bairro + ", cidade=" + cidade + "]";
   }
-
 
 }

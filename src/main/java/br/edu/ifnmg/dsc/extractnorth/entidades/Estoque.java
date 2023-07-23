@@ -1,10 +1,26 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Estoques")
+
 public class Estoque {
 
   /* Attributes */
+  @Column(nullable = false)
   private Double quantidade;
+
+  @ManyToOne
+  @JoinColumn(name = "lote_id", nullable = false)
   private Lote lote;
+
+  @ManyToOne
+  @JoinColumn(name = "produto_id", nullable = false)
   private Produto produto;
 
   /* Getters and Setters */

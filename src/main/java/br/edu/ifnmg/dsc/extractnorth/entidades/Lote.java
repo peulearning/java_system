@@ -1,5 +1,10 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Lotes")
 public class Lote {
 
   /* Attributes */

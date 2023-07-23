@@ -7,8 +7,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "PessoasFornecedores")
-@Getter @Setter
+@Table(name = "Fornecedores")
+@Getter
+@Setter
 public class Fornecedor extends Pessoa {
 
   /* Attributes */
@@ -16,10 +17,8 @@ public class Fornecedor extends Pessoa {
   @Column(length = 11, nullable = true, unique = true)
   private long cpf;
 
-
-
   /* Constructor */
-   public Fornecedor(long id, String nome, Long telefone, String email, Endereco endereco, long cpf) {
+  public Fornecedor(long id, String nome, Long telefone, String email, Endereco endereco, long cpf) {
     super(id, nome, telefone, email, endereco);
     this.cpf = cpf;
   }
@@ -62,6 +61,3 @@ public class Fornecedor extends Pessoa {
   }
 
 }
-
-
-

@@ -5,20 +5,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Pessoas")
+@Table(name = "Funcionarios")
 public class Funcionario extends Pessoa {
 
   /* Attributes */
 
-  @Column()
+  @Column(length = 11, nullable = true, unique = true)
   protected long cpf;
 
-  @Column()
+  @Column(nullable = false)
   protected boolean status;
 
-
   /* Constructor */
-    public Funcionario(long id, String nome, Long telefone, String email, Endereco endereco, long cpf, boolean status) {
+  public Funcionario(long id, String nome, Long telefone, String email, Endereco endereco, long cpf, boolean status) {
     super(id, nome, telefone, email, endereco);
     this.cpf = cpf;
     this.status = status;
@@ -34,7 +33,6 @@ public class Funcionario extends Pessoa {
   }
 
   public boolean isStatus() {
-
 
     return status;
   }
@@ -53,7 +51,6 @@ public class Funcionario extends Pessoa {
     return result;
   }
 
-
   @Override
   public boolean equals(Object obj) {
     if (this == obj)
@@ -70,14 +67,9 @@ public class Funcionario extends Pessoa {
     return true;
   }
 
-
   @Override
   public String toString() {
     return "Funcionario [cpf=" + cpf + ", status=" + status + "]";
   }
 
-
-
 }
-
-
