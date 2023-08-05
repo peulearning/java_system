@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.1</version>
+		<version>3.1.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.edu.ifnmg.dsc</groupId>
@@ -17,6 +17,29 @@
 		<java.version>20</java.version>
 	</properties>
 	<dependencies>
+
+	<!-- Add Dependencys JavaFX -->
+ 	<dependency>
+ 		<groupId>org.openjfx</groupId>
+ 		<artifactId>javafx-fxml</artifactId>
+ 		<version>21-ea+24</version>
+ 	</dependency>
+
+	<!-- Add Dependencys JavaFX -->
+ 	<dependency>
+ 		<groupId>org.openjfx</groupId>
+ 		<artifactId>javafx-base</artifactId>
+ 		<version>21-ea+24</version>
+ 	</dependency>
+
+	<!-- Add Dependencys JavaFX -->
+ 	<dependency>
+ 		<groupId>org.openjfx</groupId>
+ 		<artifactId>javafx-maven-plugin</artifactId>
+ 		<version>0.0.8</version>
+ 		<type>maven-plugin</type>
+ 	</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
