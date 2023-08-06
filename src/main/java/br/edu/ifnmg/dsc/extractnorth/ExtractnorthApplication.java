@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ExtractnorthApplication {
 
 	public static void main(String[] args) {
+
+		System.out.print("IFNMG DSC 2023");
+
 		SpringApplication.run(ExtractnorthApplication.class, args);
 	}
 
