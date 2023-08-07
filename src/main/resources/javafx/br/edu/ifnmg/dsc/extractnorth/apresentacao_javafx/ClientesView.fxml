@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Sistema de Extrativismo" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -20,6 +22,19 @@
                   <Menu mnemonicParsing="false" text="Sair" />
               </menus>
             </MenuBar>
+            <TableView layoutX="52.0" layoutY="83.0" prefHeight="104.0" prefWidth="496.0">
+              <columns>
+                <TableColumn prefWidth="74.0" text="ID" />
+                <TableColumn prefWidth="76.0" text="CNPJ" />
+                  <TableColumn prefWidth="121.0" text="Nome (Fantasia)" />
+                  <TableColumn prefWidth="75.0" text="Endereço" />
+                  <TableColumn prefWidth="75.0" text="E-mail" />
+                  <TableColumn prefWidth="75.0" text="Telefone" />
+              </columns>
+            </TableView>
+            <Button layoutX="123.0" layoutY="265.0" mnemonicParsing="false" text="Novo" />
+            <Button layoutX="220.0" layoutY="265.0" mnemonicParsing="false" text="Editar" />
+            <Button layoutX="318.0" layoutY="265.0" mnemonicParsing="false" text="Deletar" />
          </children></AnchorPane>
   </content>
 </TitledPane>
