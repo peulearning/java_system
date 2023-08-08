@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -12,7 +14,6 @@ import jakarta.persistence.Table;
 public class Usuario {
 
   /* Attributes */
-
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
@@ -23,13 +24,22 @@ public class Usuario {
   @Column(nullable = false)
   private String senha;
 
+  @Column(length = 255, nullable = false)
+  private String atribuicao;
+
+  @OneToOne
+  @JoinColumn(name = "id_funcionario")
+  private Funcionario funcionario;
+
   /* Constructor */
-  public Usuario() {
-    this.login = "";
-    this.senha = "";
+  public Usuario(long id, String login, String senha, String atribuicao, Funcionario funcionario) {
+    this.id = id;
+    this.login = login;
+    this.senha = senha;
+    this.atribuicao = atribuicao;
+    this.funcionario = funcionario;
   }
 
-  /* Getters and Setters */
   public long getId() {
     return id;
   }
@@ -54,6 +64,23 @@ public class Usuario {
     this.senha = senha;
   }
 
+  public String getAtribuicao() {
+    return atribuicao;
+  }
+
+  public void setAtribuicao(String atribuicao) {
+    this.atribuicao = atribuicao;
+  }
+
+  public Funcionario getFuncionario() {
+    return funcionario;
+  }
+
+  public void setFuncionario(Funcionario funcionario) {
+    this.funcionario = funcionario;
+  }
+
+  /* Java Beans */
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -63,8 +90,6 @@ public class Usuario {
     result = prime * result + ((senha == null) ? 0 : senha.hashCode());
     return result;
   }
-
-  /* Java Beans */
 
   @Override
   public boolean equals(Object obj) {
@@ -92,7 +117,7 @@ public class Usuario {
 
   @Override
   public String toString() {
-    return "Usuario [id=" + id + ", login=" + login + ", senha=" + senha + "]";
+    return "Usuario [login=" + login + ", atribuicao=" + atribuicao + ", funcionario=" + funcionario + "]";
   }
 
 }

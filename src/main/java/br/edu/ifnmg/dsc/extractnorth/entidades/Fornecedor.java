@@ -2,20 +2,22 @@ package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "Fornecedores")
-@Getter
-@Setter
 public class Fornecedor extends Pessoa {
 
   /* Attributes */
 
   @Column(length = 11, nullable = true, unique = true)
   private long cpf;
+
+  @OneToOne
+  @JoinColumn(name = "endereco")
+  private Endereco endereco;
 
   /* Constructor */
   public Fornecedor(long id, String nome, Long telefone, String email, Endereco endereco, long cpf) {

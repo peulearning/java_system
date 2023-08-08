@@ -2,14 +2,12 @@ package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "Clientes")
-@Getter
-@Setter
 public class Cliente extends Pessoa {
 
     /* Attributes */
@@ -19,6 +17,10 @@ public class Cliente extends Pessoa {
 
     @Column(name = "Atividade", length = 255, nullable = false)
     private String atividade;
+
+    @OneToOne
+    @JoinColumn(name = "endereco")
+    private Endereco endereco;
 
     /* Constructor */
 

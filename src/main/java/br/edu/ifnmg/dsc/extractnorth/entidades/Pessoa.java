@@ -2,8 +2,6 @@ package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorColumn;
-import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,7 +13,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Pessoas")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "tipo", discriminatorType = DiscriminatorType.INTEGER)
 public class Pessoa {
 
   /* Attributes */

@@ -1,14 +1,13 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
-import java.util.ArrayList;
+import org.hibernate.mapping.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,9 +22,16 @@ public class Item {
   @Column(nullable = false)
   private double quantidade;
 
-  @ManyToOne
-  @JoinColumn(name = "produto_id", nullable = false)
-  private ArrayList<String> Produto;
+  @OneToMany
+  @Column(name = "id_produtos")
+  private List Produto;
+
+  /* Constructor */
+  public Item(int id, double quantidade, List produto) {
+    this.id = id;
+    this.quantidade = quantidade;
+    Produto = produto;
+  }
 
   /* Getters and Setters */
   public int getId() {
@@ -44,15 +50,16 @@ public class Item {
     this.quantidade = quantidade;
   }
 
-  public ArrayList<String> getProduto() {
+  public List getProduto() {
     return Produto;
   }
 
-  public void setProduto(ArrayList<String> produto) {
+  public void setProduto(List produto) {
     Produto = produto;
   }
 
   /* Java Beans */
+
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -61,13 +68,28 @@ public class Item {
     long temp;
     temp = Double.doubleToLongBits(quantidade);
     result = prime * result + (int) (temp ^ (temp >>> 32));
-    result = prime * result + ((Produto == null) ? 0 : Produto.hashCode());
     return result;
   }
 
   @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Item other = (Item) obj;
+    if (id != other.id)
+      return false;
+    if (Double.doubleToLongBits(quantidade) != Double.doubleToLongBits(other.quantidade))
+      return false;
+    return true;
+  }
+
+  @Override
   public String toString() {
-    return "Item [id=" + id + ", quantidade=" + quantidade + ", Produto=" + Produto + "]";
+    return "Item [Produto=" + Produto + "]";
   }
 
 }

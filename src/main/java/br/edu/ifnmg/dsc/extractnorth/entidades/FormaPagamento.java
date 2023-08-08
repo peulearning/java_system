@@ -1,12 +1,17 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+public enum FormaPagamento {
+  PIX(1),
+  DINHEIRO(2),
+  CARTAO(3);
 
-@Entity
-@Table(name = "FormaPagamentos")
-public class FormaPagamento extends TransacaoFinanceira {
-  public int dinheiro = 1;
-  public int pix = 2;
-  public int cartao = 3;
+  private final int formaPg;
+
+  private FormaPagamento(int formaPg) {
+    this.formaPg = formaPg;
+  }
+
+  public int getFormaPg() {
+    return formaPg;
+  }
 }

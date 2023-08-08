@@ -8,14 +8,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Transacoes")
-
 public class TransacaoFinanceira {
 
   /* Attributes */
@@ -26,25 +24,21 @@ public class TransacaoFinanceira {
   private Item itens;
 
   @ManyToOne
-  @JoinColumn(name = "forma_pagamento_id", nullable = false)
   private FormaPagamento formaPg;
 
   @OneToMany(mappedBy = "Transacoes", cascade = CascadeType.ALL)
   private ArrayList<Item> items;
 
   @ManyToOne
-  @JoinColumn(name = "pessoa_id", nullable = false)
   private Pessoa pessoa;
 
   @ManyToOne
-  @JoinColumn(name = "estoque_id", nullable = false)
   private Estoque estoque;
 
   @Column(nullable = false)
   private int TipoTransacao;
 
-  @ManyToOne
-  @JoinColumn(name = "status_transacao_id", nullable = false)
+  @Column(nullable = false)
   private StatusTransacao status;
 
   /* Getters and Setters */

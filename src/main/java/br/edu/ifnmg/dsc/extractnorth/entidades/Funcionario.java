@@ -2,6 +2,8 @@ package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,6 +17,10 @@ public class Funcionario extends Pessoa {
 
   @Column(nullable = false)
   protected boolean status;
+
+  @OneToOne
+  @JoinColumn(name = "endereco")
+  private Endereco endereco;
 
   /* Constructor */
   public Funcionario(long id, String nome, Long telefone, String email, Endereco endereco, long cpf, boolean status) {
