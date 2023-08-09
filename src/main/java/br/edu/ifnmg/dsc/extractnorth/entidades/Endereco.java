@@ -2,10 +2,8 @@ package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Enderecos")
 public class Endereco extends Pessoa {
 
   /* Atttibutes */

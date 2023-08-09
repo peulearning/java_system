@@ -1,13 +1,17 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
-import org.hibernate.mapping.List;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,44 +26,21 @@ public class Item {
   @Column(nullable = false)
   private double quantidade;
 
-  @OneToMany
-  @Column(name = "id_produtos")
-  private List Produto;
+  @ManyToMany
+  @JoinTable(name = "item_produto", joinColumns = @JoinColumn(name = "item_id"), inverseJoinColumns = @JoinColumn(name = "produto_id"))
+  private List<Produto> produtos = new ArrayList<>();
+
+  @ManyToOne
+  private TransacaoFinanceira transacao;
 
   /* Constructor */
-  public Item(int id, double quantidade, List produto) {
+  public Item(int id, double quantidade, List<Produto> produtos) {
     this.id = id;
     this.quantidade = quantidade;
-    Produto = produto;
-  }
-
-  /* Getters and Setters */
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public double getQuantidade() {
-    return quantidade;
-  }
-
-  public void setQuantidade(double quantidade) {
-    this.quantidade = quantidade;
-  }
-
-  public List getProduto() {
-    return Produto;
-  }
-
-  public void setProduto(List produto) {
-    Produto = produto;
+    this.produtos = produtos;
   }
 
   /* Java Beans */
-
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -89,7 +70,7 @@ public class Item {
 
   @Override
   public String toString() {
-    return "Item [Produto=" + Produto + "]";
+    return "Item [id=" + id + ", quantidade=" + quantidade + ", produtos=" + produtos + "]";
   }
 
 }

@@ -2,12 +2,12 @@ package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,7 +29,7 @@ public class Pessoa {
   @Column(name = "email", length = 255, nullable = false)
   protected String email;
 
-  @JoinColumn(name = "Enderecos", nullable = false)
+  @Embedded
   protected Endereco endereco;
 
   /* Constructor */

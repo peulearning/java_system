@@ -4,10 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Fornecedores")
 public class Fornecedor extends Pessoa {
 
   /* Attributes */
