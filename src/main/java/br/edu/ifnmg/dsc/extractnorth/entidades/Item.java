@@ -13,9 +13,19 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "Items")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Item {
 
   /* Attributes */
@@ -33,44 +43,10 @@ public class Item {
   @ManyToOne
   private TransacaoFinanceira transacao;
 
-  /* Constructor */
-  public Item(int id, double quantidade, List<Produto> produtos) {
-    this.id = id;
-    this.quantidade = quantidade;
-    this.produtos = produtos;
-  }
-
-  /* Java Beans */
-  @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + id;
-    long temp;
-    temp = Double.doubleToLongBits(quantidade);
-    result = prime * result + (int) (temp ^ (temp >>> 32));
-    return result;
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Item other = (Item) obj;
-    if (id != other.id)
-      return false;
-    if (Double.doubleToLongBits(quantidade) != Double.doubleToLongBits(other.quantidade))
-      return false;
-    return true;
-  }
-
   @Override
   public String toString() {
-    return "Item [id=" + id + ", quantidade=" + quantidade + ", produtos=" + produtos + "]";
+    return "Item [id=" + id + ", quantidade=" + quantidade + ", produtos=" + produtos + ", transacao=" + transacao
+        + "]";
   }
 
 }
