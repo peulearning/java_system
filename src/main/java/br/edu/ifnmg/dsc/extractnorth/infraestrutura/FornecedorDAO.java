@@ -56,7 +56,8 @@ public class FornecedorDAO extends DAO<Fornecedor> implements FornecedorReposito
       parametros.add(filtro.getEmail());
     }
 
-    if (((Pessoa) filtro).getEndereco().getCidade() != null || ((Pessoa) filtro).getEndereco().getCidade() != "") {
+    if (((Fornecedor) filtro).getEndereco().getCidade() != null
+        || ((Fornecedor) filtro).getEndereco().getCidade() != "") {
       if (where.length() > 0)
         where += "and ";
       where += "e.cidade = :p5 ";

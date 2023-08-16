@@ -18,21 +18,68 @@
 	</properties>
 	<dependencies>
 
-	<!-- Add Dependencys JavaFX -->
+	<!-- Add Dependecys ✅-->
+ 	<dependency>
+ 		<groupId>org.openjfx</groupId>
+ 		<artifactId>javafx-fxml</artifactId>
+ 		<version>21-ea+24</version>
+ 		<type>pom</type>
+ 	</dependency>
+
+
+	<!-- Add Dependecys ✅-->
+ 	<dependency>
+ 		<groupId>net.rgielen</groupId>
+ 		<artifactId>javafx-weaver-spring-boot-starter</artifactId>
+ 		<version>1.3.0</version>
+ 	</dependency>
+
+
+	<!-- Add Dependecys JavaFX ✅-->
+ 	<dependency>
+ 		<groupId>net.rgielen</groupId>
+ 		<artifactId>javafx-weaver-spring</artifactId>
+ 		<version>1.3.0</version>
+ 	</dependency>
+
+	<!-- Add Dependencys Java Fx -->
+
+
+	<!-- Add Dependecys Weaver SpringBoot  ✅-->
+ 	<dependency>
+ 		<groupId>net.rgielen</groupId>
+ 		<artifactId>javafx-weaver-spring-boot</artifactId>
+ 		<version>1.3.0</version>
+ 		<type>pom</type>
+ 	</dependency>
+
+
+
+  <!-- Add Dependecys Weaver ✅ -->
+ 	<dependency>
+ 		<groupId>net.rgielen</groupId>
+ 		<artifactId>javafx-weaver</artifactId>
+ 		<version>1.3.0</version>
+ 		<type>pom</type>
+ 	</dependency>
+
+
+
+	<!-- Add Dependencys JavaFX ✅ -->
  	<dependency>
  		<groupId>org.openjfx</groupId>
  		<artifactId>javafx-fxml</artifactId>
  		<version>21-ea+24</version>
  	</dependency>
 
-	<!-- Add Dependencys JavaFX -->
+	<!-- Add Dependencys JavaFX ✅-->
  	<dependency>
  		<groupId>org.openjfx</groupId>
  		<artifactId>javafx-base</artifactId>
  		<version>21-ea+24</version>
  	</dependency>
 
-	<!-- Add Dependencys JavaFX -->
+	<!-- Add Dependencys JavaFX ✅-->
  	<dependency>
  		<groupId>org.openjfx</groupId>
  		<artifactId>javafx-maven-plugin</artifactId>
