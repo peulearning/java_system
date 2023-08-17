@@ -18,6 +18,9 @@
 	</properties>
 	<dependencies>
 
+	<property name="hibernate.discriminator.ignore_explicit_for_joined">true</property>
+
+
 	<!-- Add Dependecys ✅-->
  	<dependency>
  		<groupId>org.openjfx</groupId>
@@ -136,6 +139,8 @@
      <version>8.0.30</version>
    </dependency>
  </dependencies>
+
+
 
 	<build>
 		<plugins>

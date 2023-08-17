@@ -33,14 +33,11 @@ public class TransacaoFinanceira {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  @ManyToOne
-  private Item itens;
-
-  @Enumerated(EnumType.STRING)
+  @Enumerated(EnumType.ORDINAL)
   private FormaPagamento formaPg;
 
   @OneToMany(mappedBy = "transacao", cascade = CascadeType.ALL)
-  private ArrayList<Item> items;
+  private ArrayList<Item> itens;
 
   @ManyToOne
   private Pessoa pessoa;
@@ -48,16 +45,18 @@ public class TransacaoFinanceira {
   @ManyToOne
   private Estoque estoque;
 
+  @Enumerated(EnumType.ORDINAL)
   @Column(nullable = false)
-  private int TipoTransacao;
+  private TipoTransacao tipoTransacao;
 
+  @Enumerated(EnumType.ORDINAL)
   @Column(nullable = false)
   private StatusTransacao status;
 
   @Override
   public String toString() {
-    return "TransacaoFinanceira [id=" + id + ", itens=" + itens + ", formaPg=" + formaPg + ", items=" + items
-        + ", pessoa=" + pessoa + ", estoque=" + estoque + ", TipoTransacao=" + TipoTransacao + ", status=" + status
+    return "TransacaoFinanceira [id=" + id + ", itens=" + itens + ", formaPg=" + formaPg
+        + ", pessoa=" + pessoa + ", estoque=" + estoque + ", status=" + status
         + "]";
   }
 

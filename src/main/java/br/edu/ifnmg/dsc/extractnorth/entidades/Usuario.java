@@ -16,7 +16,7 @@ public class Usuario {
   /* Attributes */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+  private int id;
 
   @Column(length = 50, unique = true, nullable = false)
   private String login;
@@ -32,7 +32,7 @@ public class Usuario {
   private Funcionario funcionario;
 
   /* Constructor */
-  public Usuario(long id, String login, String senha, String atribuicao, Funcionario funcionario) {
+  public Usuario(int id, String login, String senha, String atribuicao, Funcionario funcionario) {
     this.id = id;
     this.login = login;
     this.senha = senha;
@@ -44,7 +44,7 @@ public class Usuario {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(int id) {
     this.id = id;
   }
 

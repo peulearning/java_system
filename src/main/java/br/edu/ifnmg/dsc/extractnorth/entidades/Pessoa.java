@@ -2,6 +2,7 @@ package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,6 +18,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Pessoas")
+@DiscriminatorColumn(name = "perfil")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 @Setter
@@ -29,6 +31,8 @@ public class Pessoa {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
+  private int perfil;
 
   @Column(name = "nome", length = 500, nullable = false)
   protected String nome;
