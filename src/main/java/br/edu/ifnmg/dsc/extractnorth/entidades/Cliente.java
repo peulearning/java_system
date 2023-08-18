@@ -1,7 +1,6 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -10,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@DiscriminatorValue(value = "1")
 @Getter
 @Setter
 @AllArgsConstructor
