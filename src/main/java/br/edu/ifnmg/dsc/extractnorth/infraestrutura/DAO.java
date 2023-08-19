@@ -2,8 +2,6 @@ package br.edu.ifnmg.dsc.extractnorth.infraestrutura;
 
 import java.util.List;
 
-import com.mysql.cj.Query;
-
 import br.edu.ifnmg.dsc.extractnorth.servicos.Repositorio;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -73,10 +71,12 @@ public class DAO<T> implements Repositorio<T> {
       Root<T> root = cr.from(classe);
       cr.select(root);
 
-      Query consulta = (Query) manager.createQuery(cr);
+      TypedQuery<T> consulta = manager.createQuery(cr);
 
-      return ((TypedQuery<T>) consulta).getResultList();
+      return consulta.getResultList();
     } catch (Exception ex) {
+
+      ex.printStackTrace();
       return null;
     }
   }

@@ -1,5 +1,10 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum StatusTransacao {
   emAberto(1),
   paga(2),
@@ -9,11 +14,4 @@ public enum StatusTransacao {
 
   private final int StatusTransacao;
 
-  private StatusTransacao(int StatusTransacao) {
-    this.StatusTransacao = StatusTransacao;
-  }
-
-  public int getStatusTransacao() {
-    return StatusTransacao;
-  }
 }

@@ -1,14 +1,7 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Getter
@@ -18,22 +11,20 @@ import lombok.Setter;
 @EqualsAndHashCode
 public class Endereco {
 
-  /* Atttibutes */
-  @Column(name = "rua", length = 255)
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  @Column
   private String rua;
 
-  @Column(name = "bairro", length = 255)
+  @Column
   private String bairro;
 
-  @Column(name = "cidade", length = 255)
+  @Column
   private String cidade;
 
-  @Id
   @OneToOne(mappedBy = "endereco")
   private Pessoa pessoa;
 
-  @Override
-  public String toString() {
-    return "Endereco [rua=" + rua + ", bairro=" + bairro + ", cidade=" + cidade + "]";
-  }
 }

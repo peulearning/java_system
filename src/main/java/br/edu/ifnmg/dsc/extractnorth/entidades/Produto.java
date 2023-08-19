@@ -1,32 +1,24 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Collection;
 
 @Entity
-@Table(name = "Produtos")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class Produto {
 
-  /* Attributes */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  @Column(length = 255, nullable = false)
+  @Column(nullable = false)
   private String nome;
 
   @Column(nullable = false)
@@ -35,9 +27,7 @@ public class Produto {
   @Column(nullable = false)
   private double precoVenda;
 
-  @Override
-  public String toString() {
-    return "Produto [id=" + id + ", nome=" + nome + ", precoCompra=" + precoCompra + ", precoVenda=" + precoVenda + "]";
-  }
+  @OneToMany(mappedBy = "produto")
+  private Collection<Lote> lote;
 
 }

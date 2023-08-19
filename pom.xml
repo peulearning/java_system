@@ -16,9 +16,10 @@
 	<properties>
 		<java.version>20</java.version>
 	</properties>
+
 	<dependencies>
 
- <!-- New Dependency -->
+
  	<dependency>
  		<groupId>org.springframework.boot</groupId>
  		<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -26,7 +27,6 @@
  	</dependency>
 
 
-	<!-- Add Dependecys ✅-->
  	<dependency>
  		<groupId>org.openjfx</groupId>
  		<artifactId>javafx-fxml</artifactId>
@@ -35,7 +35,6 @@
  	</dependency>
 
 
-	<!-- Add Dependecys ✅-->
  	<dependency>
  		<groupId>net.rgielen</groupId>
  		<artifactId>javafx-weaver-spring-boot-starter</artifactId>
@@ -43,17 +42,13 @@
  	</dependency>
 
 
-	<!-- Add Dependecys JavaFX ✅-->
+
  	<dependency>
  		<groupId>net.rgielen</groupId>
  		<artifactId>javafx-weaver-spring</artifactId>
  		<version>1.3.0</version>
  	</dependency>
 
-	<!-- Add Dependencys Java Fx -->
-
-
-	<!-- Add Dependecys Weaver SpringBoot  ✅-->
  	<dependency>
  		<groupId>net.rgielen</groupId>
  		<artifactId>javafx-weaver-spring-boot</artifactId>
@@ -63,7 +58,7 @@
 
 
 
-  <!-- Add Dependecys Weaver ✅ -->
+
  	<dependency>
  		<groupId>net.rgielen</groupId>
  		<artifactId>javafx-weaver</artifactId>
@@ -71,21 +66,21 @@
  		<type>pom</type>
  	</dependency>
 
-	<!-- Add Dependencys JavaFX ✅ -->
+
  	<dependency>
  		<groupId>org.openjfx</groupId>
  		<artifactId>javafx-fxml</artifactId>
  		<version>21-ea+24</version>
  	</dependency>
 
-	<!-- Add Dependencys JavaFX ✅-->
+
  	<dependency>
  		<groupId>org.openjfx</groupId>
  		<artifactId>javafx-base</artifactId>
  		<version>21-ea+24</version>
  	</dependency>
 
-	<!-- Add Dependencys JavaFX ✅-->
+
  	<dependency>
  		<groupId>org.openjfx</groupId>
  		<artifactId>javafx-maven-plugin</artifactId>
@@ -109,21 +104,25 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -141,7 +140,7 @@
      <artifactId>mysql-connector-java</artifactId>
      <version>8.0.30</version>
    </dependency>
- </dependencies>
+
 
 	<dependency>
     <groupId>org.hibernate</groupId>
@@ -152,8 +151,11 @@
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
-    <version>5.3.20.Final</version>
+    <version>6.3.0.CR1</version>
 </dependency>
+
+	 </dependencies>
+
 
 	<build>
 		<plugins>

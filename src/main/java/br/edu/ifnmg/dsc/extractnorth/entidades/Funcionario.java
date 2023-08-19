@@ -2,11 +2,7 @@ package br.edu.ifnmg.dsc.extractnorth.entidades;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
@@ -14,11 +10,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@ToString
 public class Funcionario extends Pessoa {
 
-  /* Attributes */
-
-  @Column(length = 11, nullable = true, unique = true)
+  @Column(length = 11, unique = true)
   protected String cpf;
 
   @Column(nullable = false)
@@ -26,10 +21,5 @@ public class Funcionario extends Pessoa {
 
   @Column(nullable = false)
   protected Double salario;
-
-  @Override
-  public String toString() {
-    return "Funcionario [cpf=" + cpf + ", status=" + status + ", endereco=" + endereco + "]";
-  }
 
 }
