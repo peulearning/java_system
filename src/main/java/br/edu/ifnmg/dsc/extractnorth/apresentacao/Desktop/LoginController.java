@@ -5,7 +5,7 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Service;
 
 @Service
-@FxmlView("LoginView.fxml")
+@FxmlView("/javafx/br/edu/ifnmg/dsc/extractnorth/apresentacao_javafx/LoginView.fxml")
 public class LoginController {
 
 }
