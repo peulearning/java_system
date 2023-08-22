@@ -1,4 +1,4 @@
-package br.edu.ifnmg.dsc.extractnorth;
+package br.edu.ifnmg.dsc.extractnorth.apresentacao_console;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

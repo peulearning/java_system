@@ -1,10 +1,17 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
-import jakarta.persistence.*;
-import lombok.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
@@ -22,9 +29,8 @@ public class Item {
   @Column(nullable = false)
   private double quantidade;
 
-  @ManyToMany
-  @JoinTable(name = "item_produto", joinColumns = @JoinColumn(name = "item_id"), inverseJoinColumns = @JoinColumn(name = "produto_id"))
-  private List<Produto> produtos = new ArrayList<>();
+  @ManyToOne
+  private Produto produto;
 
   @ManyToOne
   private TransacaoFinanceira transacao;
