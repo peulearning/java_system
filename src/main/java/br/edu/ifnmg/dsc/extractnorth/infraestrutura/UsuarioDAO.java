@@ -28,13 +28,22 @@ public class UsuarioDAO extends DAO<Usuario> implements UsuarioRepositorio {
   }
 
   @Override
-  public boolean Autenticar(String login, String senha){
+  public boolean Autenticar(String login, String senha) {
     Query consulta = (Query) getManager()
-          .createQuery("select u from Usuario u where u.login = :login and u.senha = :senha");
+        .createQuery("select u from Usuario u where u.login = :login and u.senha = :senha");
     consulta.setParameter("login", login);
     consulta.setParameter("senha", senha);
-    Usuario tmp = (Usuario)consulta.getSingleResult();
+    try {
+      Usuario tmp = (Usuario) consulta.getSingleResult();
+
       return tmp != null;
+
+    } catch (Exception e) {
+
+      return false;
+
+    }
+
   }
 
 }

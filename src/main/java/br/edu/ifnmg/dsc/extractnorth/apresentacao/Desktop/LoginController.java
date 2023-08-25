@@ -9,16 +9,16 @@ import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import net.rgielen.fxweaver.core.FxmlView;
 
 @Service
-@FxmlView("/javafx/br/edu/ifnmg/dsc/extractnorth/apresentacao_javafx/LoginView.fxml")
+@FxmlView("LoginView.fxml")
 public class LoginController extends Controller {
 
     @Inject
@@ -31,10 +31,10 @@ public class LoginController extends Controller {
     private PasswordField pwdSenha;
 
     @FXML
-    TitledPane LoginView;
+    private Button registre;
 
     @FXML
-    private Hyperlink hyperlinkRegistro;
+    TitledPane LoginView;
 
     public LoginController() {
 
@@ -49,6 +49,9 @@ public class LoginController extends Controller {
 
             Alert alert = new Alert(AlertType.INFORMATION, "Bem vindo ao sistema! ", ButtonType.OK);
             alert.showAndWait();
+
+            carregarScene(LoginView, TelaPrincipalController.class);
+
         } else {
 
             Alert alert = new Alert(AlertType.CONFIRMATION, "Erro ao acessar o sistema. Deseja sair?", ButtonType.YES,
@@ -61,5 +64,4 @@ public class LoginController extends Controller {
 
         }
     }
-
 }

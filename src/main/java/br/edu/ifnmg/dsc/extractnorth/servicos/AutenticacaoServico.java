@@ -6,4 +6,5 @@ public interface AutenticacaoServico {
   public boolean autenticar(String usuario, String senha);
 
   public Usuario getUsuario();
+
 }
