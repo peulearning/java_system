@@ -19,7 +19,7 @@ public class MenuController extends Controller {
   }
 
   @FXML
-  public void telaUsuario(Event e) {
+  public void telaUsuarios(Event e) {
     carregarScene(principal, UsuarioController.class);
   }
 }
