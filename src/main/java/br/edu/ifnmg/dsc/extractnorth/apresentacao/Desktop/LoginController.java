@@ -9,8 +9,8 @@ import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -31,7 +31,7 @@ public class LoginController extends Controller {
     private PasswordField pwdSenha;
 
     @FXML
-    private Button registre;
+    private Button btnRegistre;
 
     @FXML
     TitledPane LoginView;
@@ -63,5 +63,10 @@ public class LoginController extends Controller {
             }
 
         }
+    }
+
+    @FXML
+    public void mostrarTelaRegistro() {
+        carregarScene(LoginView, RegistroController.class);
     }
 }

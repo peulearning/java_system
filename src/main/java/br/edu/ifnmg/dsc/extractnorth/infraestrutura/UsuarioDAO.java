@@ -67,4 +67,24 @@ public class UsuarioDAO extends DAO<Usuario> implements UsuarioRepositorio {
 
   }
 
+  @Override
+  public boolean Cadastrar(String novoUsuario, String novaSenha) {
+    Query consulta = getManager().createQuery("select u from Usuario u where u.login = :login");
+    consulta.setParameter("login", novoUsuario);
+    consulta.getSingleResult();
+
+    try {
+      Usuario usuario = new Usuario();
+      usuario.setLogin(novoUsuario);
+      usuario.setSenha(novaSenha);
+
+      getManager().persist(usuario);
+
+      return true;
+    } catch (Exception ex) {
+      System.out.println("Erro ao cadastrar usuário :" + ex.getMessage());
+      return false;
+    }
+  }
+
 }

@@ -9,4 +9,6 @@ public interface UsuarioRepositorio
 
   public boolean Autenticar(String login, String senha);
 
+  public boolean Cadastrar(String novoUsuario, String novaSenha);
+
 }
