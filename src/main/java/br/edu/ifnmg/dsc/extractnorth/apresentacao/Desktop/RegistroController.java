@@ -44,17 +44,22 @@ public class RegistroController extends Controller {
     String novoUsuario = txtNovoUsuario.getText();
     String novaSenha = pwdNovaSenha.getText();
 
-    if(usuarios.Cadastrar(novoUsuario, novaSenha)){
+    if (usuarios.Cadastrar(novoUsuario, novaSenha)) {
       Alert alert = new Alert(AlertType.INFORMATION, "Usuário cadastrado com sucesso ! ", ButtonType.OK);
       alert.showAndWait();
 
-       txtNovoUsuario.clear();
-       pwdNovaSenha.clear();
-         }else{
-       Alert alert = new Alert(AlertType.ERROR,"Erro ao cadastrar usuário.", ButtonType.OK);
-       alert.showAndWait();
+      txtNovoUsuario.clear();
+      pwdNovaSenha.clear();
+    } else {
+      Alert alert = new Alert(AlertType.ERROR, "Erro ao cadastrar usuário.", ButtonType.OK);
+      alert.showAndWait();
     }
 
+  }
+
+  @FXML
+  public void retornarTelaLogin() {
+    carregarScene(RegistroView, LoginController.class);
   }
 
 }

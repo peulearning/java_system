@@ -6,11 +6,16 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ifnmg.dsc.extractnorth.entidades.Usuario;
 import br.edu.ifnmg.dsc.extractnorth.servicos.UsuarioRepositorio;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
 @Service
 public class UsuarioDAO extends DAO<Usuario> implements UsuarioRepositorio {
+
+  @PersistenceContext
+  private EntityManager entityManager;
 
   public UsuarioDAO() {
     super(Usuario.class);
@@ -68,23 +73,36 @@ public class UsuarioDAO extends DAO<Usuario> implements UsuarioRepositorio {
   }
 
   @Override
+  @Transactional
   public boolean Cadastrar(String novoUsuario, String novaSenha) {
-    Query consulta = getManager().createQuery("select u from Usuario u where u.login = :login");
+    Query consulta = getManager().createQuery("SELECT u FROM Usuario u WHERE u.login = :login");
     consulta.setParameter("login", novoUsuario);
-    consulta.getSingleResult();
+
+    List<Usuario> usuarios = consulta.getResultList();
+
+    if (!usuarios.isEmpty()) {
+      // Usuário com o mesmo login já existe
+      return false;
+    }
 
     try {
       Usuario usuario = new Usuario();
       usuario.setLogin(novoUsuario);
       usuario.setSenha(novaSenha);
+      usuario.setAtribuicao("Dono/Adm");
 
-      getManager().persist(usuario);
+      entityManager().persist(usuario);
 
-      return true;
+      return true; // Cadastro bem-sucedido
+
     } catch (Exception ex) {
-      System.out.println("Erro ao cadastrar usuário :" + ex.getMessage());
-      return false;
+      System.out.println("Erro ao cadastrar usuário: " + ex.getMessage());
+      return false; // Falha no cadastro
     }
+  }
+
+  private EntityManager entityManager() {
+    return entityManager;
   }
 
 }

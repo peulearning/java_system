@@ -12,13 +12,13 @@
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
-            <Button fx:id="btnCadastrar" layoutX="278.0" layoutY="118.0" mnemonicParsing="false" text="Cadastrar" />
+            <Button fx:id="btnCadastrar" layoutX="278.0" layoutY="118.0" mnemonicParsing="false" onAction="#cadastrarNovoUsuario" text="Cadastrar" />
             <PasswordField fx:id="pwdNovaSenha" layoutX="410.0" layoutY="71.0" />
             <TextField fx:id="txtNovoUsuario" layoutX="96.0" layoutY="71.0" />
             <Label layoutX="27.0" layoutY="75.0" text="Usuario" />
             <Label layoutX="345.0" layoutY="75.0" text="Senha" />
             <Text layoutX="27.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-Vindos a pagina de Registro  ! Aqui você irá cadastrar o &quot;Usuário que utilizará nosso Sistema de acordo com suas atribuições." wrappingWidth="545.0" />
-            <Button fx:id="LoginView" layoutX="187.0" layoutY="197.0" mnemonicParsing="false" text="Retorne ao menu para completar seu login !" />
+            <Button fx:id="btnRetornar" layoutX="187.0" layoutY="197.0" mnemonicParsing="false" onAction="#retornarTelaLogin" text="Retorne ao menu para completar seu login !" />
          </children></AnchorPane>
   </content>
 </TitledPane>
