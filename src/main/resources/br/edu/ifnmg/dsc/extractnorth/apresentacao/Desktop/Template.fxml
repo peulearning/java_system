@@ -15,14 +15,32 @@
 
                 <Menu mnemonicParsing="false" text="Usuários">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#telaUsuarios" text="Usuários" />
+                        <MenuItem mnemonicParsing="false" onAction="#telaUsuarios" text="Click Here" />
                      </items></Menu>
-                <Menu mnemonicParsing="false" text="Funcionários" />
-                <Menu mnemonicParsing="false" text="Clientes" />
-                <Menu mnemonicParsing="false" text="Fornecedores" />
-                  <Menu mnemonicParsing="false" text="Produtos" />
-                  <Menu mnemonicParsing="false" text="Transações" />
-                  <Menu mnemonicParsing="false" text="Sair" />
+                <Menu mnemonicParsing="false" text="Funcionários">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Click Here" />
+                     </items></Menu>
+                <Menu mnemonicParsing="false" text="Clientes">
+                     <items>
+                        <MenuItem mnemonicParsing="false"  text="Click Here" />
+                     </items></Menu>
+                <Menu mnemonicParsing="false" text="Fornecedores">
+                     <items>
+                        <MenuItem mnemonicParsing="false"  text="Click Here" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="Produtos">
+                     <items>
+                        <MenuItem mnemonicParsing="false"  text="Click Here" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="Transações">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Click Here" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="Sair">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Click Here" />
+                     </items></Menu>
               </menus>
             </MenuBar>
          </children></AnchorPane>
