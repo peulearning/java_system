@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="FuncionariosView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifnmg.dsc.extractnorth.apresentacao.Desktop.FuncionarioController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="600.0">
          <menus>
@@ -58,6 +58,29 @@
       </MenuBar>
       <TabPane fx:id="abas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="601.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
+            <Tab text="Cadastrar">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="261.0" layoutY="224.0" mnemonicParsing="false" onAction="#cadastrarNovoFuncionario" text="Cadastrar" />
+                        <Label layoutX="26.0" layoutY="33.0" text="Nome " />
+                        <TextField fx:id="txtnomeFuncionarios" layoutX="68.0" layoutY="29.0" />
+                        <Label layoutX="27.0" layoutY="74.0" text="Telefone" />
+                        <TextField fx:id="txttelefoneFuncionarios" layoutX="84.0" layoutY="70.0" />
+                        <Label layoutX="26.0" layoutY="107.0" text="E-mail" />
+                        <TextField fx:id="txtemailFuncionarios" layoutX="73.0" layoutY="103.0" />
+                        <Label layoutX="17.0" layoutY="156.0" text="End. (Rua, Bairro, Cidade)" />
+                        <TextField fx:id="txtenderecoFuncionarios" layoutX="168.0" layoutY="152.0" />
+                        <Label layoutX="303.0" layoutY="33.0" text="Cpf" />
+                        <TextField fx:id="txtcpfFuncionarios" layoutX="338.0" layoutY="29.0" />
+                        <Label layoutX="299.0" layoutY="74.0" text="Status" />
+                        <TextField fx:id="txtstatusFuncionarios" layoutX="345.0" layoutY="70.0" />
+                        <Label layoutX="303.0" layoutY="116.0" text="Salário" />
+                        <TextField fx:id="txtsalarioFuncionarios" layoutX="353.0" layoutY="112.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
             <Tab text="Busca">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -70,7 +93,7 @@
                                     <TableColumn prefWidth="318.0" text="ATRIBUIÇÃO" />
                                  </columns>
                               </TableView>
-                              <TextField fx:id="txtLoginBusca" layoutX="89.0" layoutY="20.0" prefHeight="26.0" prefWidth="330.0" />
+                              <TextField fx:id="txtNomeBusca" layoutX="89.0" layoutY="20.0" prefHeight="26.0" prefWidth="330.0" />
                               <Label layoutX="41.0" layoutY="24.0" text="Nome:" />
                               <Button fx:id="btnBuscar" layoutX="430.0" layoutY="20.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
                               <Button fx:id="btnNovo" layoutX="500.0" layoutY="20.0" mnemonicParsing="false" onAction="#novo" text="Novo" />
@@ -96,6 +119,11 @@
                      </children>
                   </AnchorPane>
                </content>
+            </Tab>
+            <Tab text="Deletar">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
             </Tab>
          </tabs>
       </TabPane>
