@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="ClientesView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller= "br.edu.ifnmg.dsc.extractnorth.apresentacao.Desktop.ClienteController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="600.0">
          <menus>
@@ -58,6 +58,27 @@
       </MenuBar>
       <TabPane fx:id="abas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="601.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
+            <Tab text="Cadastrar">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="245.0" layoutY="260.0" mnemonicParsing="false" onAction="#cadastrarNovoCliente" text="Cadastrar" />
+                        <Label layoutX="47.0" layoutY="62.0" text="Nome: " />
+                        <TextField fx:id="txtnomeClientes" layoutX="96.0" layoutY="58.0" />
+                        <Label layoutX="53.0" layoutY="109.0" text="Telefone:" />
+                        <TextField fx:id="txttelefoneClientes" layoutX="110.0" layoutY="105.0" />
+                        <Label layoutX="53.0" layoutY="154.0" text="Email:" />
+                        <TextField fx:id="txtemailClientes" layoutX="96.0" layoutY="150.0" />
+                        <Label layoutX="55.0" layoutY="197.0" text="End. (Rua, Bairro , Cidade): " />
+                        <TextField fx:id="txtenderecoClientes" layoutX="204.0" layoutY="193.0" />
+                        <Label layoutX="325.0" layoutY="54.0" text="Cnpj:" />
+                        <TextField fx:id="txtcnpjClientes" layoutX="362.0" layoutY="50.0" />
+                        <Label layoutX="325.0" layoutY="97.0" text="Atividade:" />
+                        <TextField fx:id="txtatividadeClientes" layoutX="389.0" layoutY="93.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
             <Tab text="Busca">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">

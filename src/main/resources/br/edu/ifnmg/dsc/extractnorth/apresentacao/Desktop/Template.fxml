@@ -21,11 +21,11 @@
                      <items>
                         <MenuItem mnemonicParsing="false" text="Click Here" />
                      </items></Menu>
-                <Menu mnemonicParsing="false" text="Clientes">
+                <Menu mnemonicParsing="false" onAction="#telaClientes" text="Clientes">
                      <items>
                         <MenuItem mnemonicParsing="false"  text="Click Here" />
                      </items></Menu>
-                <Menu mnemonicParsing="false" text="Fornecedores">
+                <Menu mnemonicParsing="false" onAction="#telaFornecedores" text="Fornecedores">
                      <items>
                         <MenuItem mnemonicParsing="false"  text="Click Here" />
                      </items></Menu>
@@ -37,7 +37,7 @@
                      <items>
                         <MenuItem mnemonicParsing="false" text="Click Here" />
                      </items></Menu>
-                  <Menu mnemonicParsing="false" text="Sair">
+                  <Menu mnemonicParsing="false" onAction="#telaSair" text="Sair">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Click Here" />
                      </items></Menu>

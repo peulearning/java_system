@@ -4,33 +4,59 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Sistema de Extrativismo" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <content>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifnmg.dsc.extractnorth.apresentacao.Desktop.SairController">
+  <children>
+      <MenuBar prefHeight="25.0" prefWidth="600.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Usuários">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Click Here" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Funcionários">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Click Here" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Clientes">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Click Here" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Fornecedores">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Click Here" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Produtos">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Click Here" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Transações">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Click Here" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Sair">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Click Here" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="379.0" prefWidth="640.0">
          <children>
-            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
-               <menus>
-                  <Menu mnemonicParsing="false" text="Usuários">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Funcionários" />z
-                  <Menu mnemonicParsing="false" text="Clientes" />
-                  <Menu mnemonicParsing="false" text="Fornecedores" />
-                  <Menu mnemonicParsing="false" text="Produtos" />
-                  <Menu mnemonicParsing="false" text="Transações" />
-                  <Menu mnemonicParsing="false" text="Sair" />
-               </menus>
-            </MenuBar>
-            <Button layoutX="281.0" layoutY="205.0" mnemonicParsing="false" text="Sair" />
-            <Text layoutX="151.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Para sair do nosso sistema basta clicar no botão abaixo !" />
-            <Text layoutX="200.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Obigado, por utilizar nossos serviços !" />
+            <Button layoutX="220.0" layoutY="150.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="185.0" text="Sair" />
+            <Text layoutX="77.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Obrigado por utilizar nosso sistema , se realmente deseja sair clique no botão abaixo." wrappingWidth="450.708984375" />
          </children>
       </AnchorPane>
-   </content>
-</TitledPane>
+
+
+
+  </children>
+</VBox>

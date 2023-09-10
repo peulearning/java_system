@@ -27,4 +27,21 @@ public class MenuController extends Controller {
   public void telaFuncionarios(Event e) {
     carregarScene(principal, FuncionarioController.class);
   }
+
+  @FXML
+  public void telaClientes(Event e) {
+    carregarScene(principal, ClienteController.class);
+  }
+
+  @FXML
+  public void telaFornecedores(Event e) {
+    carregarScene(principal, FornecedorController.class);
+
+  }
+
+  @FXML
+  public void telaSair(Event e) {
+    carregarScene(principal, SairController.class);
+  }
+
 }

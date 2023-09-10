@@ -1,89 +1,76 @@
-/*
- * package br.edu.ifnmg.dsc.extractnorth.infraestrutura;
- * 
- * import java.util.ArrayList;
- * 
- * import org.springframework.stereotype.Service;
- * 
- * import com.thoughtworks.qdox.model.expression.Query;
- * 
- * import br.edu.ifnmg.dsc.extractnorth.entidades.Fornecedor;
- * import br.edu.ifnmg.dsc.extractnorth.entidades.Pessoa;
- * import br.edu.ifnmg.dsc.extractnorth.servicos.FornecedorRepositorio;
- * 
- * @Service
- * public class FornecedorDAO extends DAO<Fornecedor> implements
- * FornecedorRepositorio {
- * 
- * public FornecedorDAO(Class<Fornecedor> classe) {
- * super(classe);
- * }
- * 
- * @Override
- * public Fornecedor abrirPorCPF(String cpf) {
- * Query consulta = (Query)
- * getManager().createQuery("select f from Fornecedor f where cpf = :p");
- * ((jakarta.persistence.Query) consulta).setParameter("p", cpf);
- * return (Fornecedor) ((jakarta.persistence.Query) consulta).getSingleResult();
- * }
- *
- * @Override
- * public ArrayList<Fornecedor> Buscar(Fornecedor filtro) {
- * String jpql = "select f from Fornecedor f join f.endereco e ";
- * String where = "";
- * ArrayList<Object> parametros = new ArrayList<>();
- *
- * if (filtro.getNome() != null || filtro.getNome() != "") {
- * where += "f.nome like CONCAT('%', :p1 , '%')";
- * parametros.add(filtro.getNome());
- * }
- *
- * if (filtro.getTelefone() != null || filtro.getTelefone() != "") {
- * if (where.length() > 0)
- * where += " and ";
- * where += " f.telefone = :p2 ";
- * parametros.add(filtro.getTelefone());
- * }
- *
- * if (filtro.getCpf() != null || filtro.getCpf() != "") {
- * if (where.length() > 0)
- * where += "and ";
- * where += "f.cpf = :p3 ";
- * parametros.add(filtro.getCpf());
- * }
- *
- * if (filtro.getEmail() != null || filtro.getEmail() != "") {
- * if (where.length() > 0)
- * where += "and ";
- * where += "f.email = :p4";
- * parametros.add(filtro.getEmail());
- * }
- *
- * if (((Fornecedor) filtro).getEndereco().getCidade() != null
- * || ((Fornecedor) filtro).getEndereco().getCidade() != "") {
- * if (where.length() > 0)
- * where += "and ";
- * where += "e.cidade = :p5 ";
- * parametros.add(((Pessoa) filtro).getEndereco().getCidade());
- * }
- *
- * String jpq = "";
- * if (where.length() > 0) {
- * jpq += " where " + where;
- * }
- *
- * jakarta.persistence.Query consulta = getManager().createQuery(jpql);
- * int ordem = 0;
- *
- * for (Object parametro : parametros) {
- * ordem++;
- * ((jakarta.persistence.Query) consulta).setParameter(ordem, parametro);
- * }
- *
- * return (ArrayList<Fornecedor>) ((jakarta.persistence.Query)
- * consulta).getResultList();
- *
- * }
- * 
- * }
- */
+package br.edu.ifnmg.dsc.extractnorth.infraestrutura;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import br.edu.ifnmg.dsc.extractnorth.entidades.Fornecedor;
+import br.edu.ifnmg.dsc.extractnorth.servicos.FornecedorRepositorio;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+import jakarta.transaction.Transactional;
+
+@Service
+public class FornecedorDAO extends DAO<Fornecedor> implements FornecedorRepositorio {
+
+  @PersistenceContext
+  private EntityManager entityManager;
+
+  public FornecedorDAO() {
+    super(Fornecedor.class);
+  }
+
+  @Override
+  @Transactional
+  public boolean Cadastrar(String novoFornecedor) {
+    Query consulta = (Query) getManager().createQuery("select f from Fornecedor f WHERE f.cpf = :cpf");
+    consulta.setParameter("cpf", novoFornecedor);
+
+    List<Fornecedor> fornecedores = consulta.getResultList();
+
+    if (!fornecedores.isEmpty()) {
+      return false;
+    }
+
+    try {
+      Fornecedor fornecedor = new Fornecedor();
+      fornecedor.setNome(novoFornecedor);
+      fornecedor.setCpf(novoFornecedor);
+      fornecedor.setEmail(novoFornecedor);
+      fornecedor.setTelefone(novoFornecedor);
+
+      entityManager().persist(fornecedor);
+
+      return true;
+    } catch (Exception ex) {
+      System.out.println("Erro ao cadastrar fornecedor ! : " + ex.getMessage());
+      return false;
+    }
+  }
+
+  private EntityManager entityManager() {
+    return entityManager;
+
+  }
+
+  @Override
+  @Transactional
+  public List<Fornecedor> Buscar(Fornecedor filtro) {
+    try {
+      String jpql = "select f from Fornecedor f";
+
+      if (!filtro.getCpf().isEmpty()) {
+        jpql += " WHERE f.cpf like :cpf";
+      }
+
+      Query consulta = getManager().createQuery(jpql);
+      if (!filtro.getCpf().isEmpty()) {
+        consulta.setParameter("cpf", filtro.getCpf());
+      }
+      return consulta.getResultList();
+    } catch (Exception ex) {
+      return null;
+    }
+  }
+}

@@ -4,6 +4,6 @@ import br.edu.ifnmg.dsc.extractnorth.entidades.Fornecedor;
 
 public interface FornecedorRepositorio extends Repositorio<Fornecedor> {
 
-  public Fornecedor abrirPorCPF(String cpf);
+  public boolean Cadastrar(String novoFornecedor);
 
 }
