@@ -17,45 +17,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller= "br.edu.ifnmg.dsc.extractnorth.apresentacao.Desktop.ClienteController">
    <children>
-      <MenuBar prefHeight="25.0" prefWidth="600.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="Usuários">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Funcionários">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Clientes">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Fornecedores">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Produtos">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Transações">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Sair">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
+
+   <fx:include source="Template.fxml" />
+
       <TabPane fx:id="abas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="601.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Cadastrar">

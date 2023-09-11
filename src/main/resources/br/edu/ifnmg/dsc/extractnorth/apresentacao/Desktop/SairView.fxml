@@ -10,45 +10,10 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifnmg.dsc.extractnorth.apresentacao.Desktop.SairController">
   <children>
-      <MenuBar prefHeight="25.0" prefWidth="600.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="Usuários">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Funcionários">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Clientes">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Fornecedores">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Produtos">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Transações">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Sair">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Click Here" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
+
+      <fx:include source="Template.fxml" />
+
+
       <AnchorPane prefHeight="379.0" prefWidth="640.0">
          <children>
             <Button layoutX="220.0" layoutY="150.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="185.0" text="Sair" />

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.TitledPane;
+import javafx.scene.layout.VBox;
 import net.rgielen.fxweaver.core.FxmlView;
 
 @FxmlView("Template.fxml")
@@ -12,7 +12,7 @@ import net.rgielen.fxweaver.core.FxmlView;
 public class MenuController extends Controller {
 
   @FXML
-  TitledPane principal;
+  VBox principal;
 
   public MenuController() {
 
@@ -42,6 +42,11 @@ public class MenuController extends Controller {
   @FXML
   public void telaSair(Event e) {
     carregarScene(principal, SairController.class);
+  }
+
+  @FXML
+  public void telaProdutos(Event e) {
+    carregarScene(principal, ProdutoController.class);
   }
 
 }
