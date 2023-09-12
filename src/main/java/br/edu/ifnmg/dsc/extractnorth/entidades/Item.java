@@ -1,5 +1,7 @@
 package br.edu.ifnmg.dsc.extractnorth.entidades;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,5 +36,11 @@ public class Item {
 
   @ManyToOne
   private TransacaoFinanceira transacao;
+
+  @Column(precision = 8, scale = 2)
+  private BigDecimal valorUnitario;
+
+  @Column(precision = 8, scale = 2)
+  private BigDecimal valorTotal;
 
 }

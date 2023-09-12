@@ -3,6 +3,7 @@ package br.edu.ifnmg.dsc.extractnorth.entidades;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 @Entity
@@ -17,6 +18,9 @@ public class TransacaoFinanceira {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+
+  @Column(nullable = false)
+  private String identificador;
 
   @Enumerated(EnumType.ORDINAL)
   private FormaPagamento formaPg;
@@ -37,5 +41,8 @@ public class TransacaoFinanceira {
   @Enumerated(EnumType.ORDINAL)
   @Column(nullable = false)
   private StatusTransacao status;
+
+  @Column(precision = 8, scale = 2)
+  private BigDecimal valor;
 
 }

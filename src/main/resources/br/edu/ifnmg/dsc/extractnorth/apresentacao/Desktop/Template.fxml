@@ -29,12 +29,12 @@
                   <MenuItem mnemonicParsing="false" text="Click Here" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Produtos">
+            <Menu mnemonicParsing="false" onAction="#telaProdutos"  text="Produtos">
                <items>
                   <MenuItem mnemonicParsing="false" text="Click Here" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Transações">
+            <Menu mnemonicParsing="false" onAction="#telaTransacoes" text="Transações">
                <items>
                   <MenuItem mnemonicParsing="false" text="Click Here" />
                </items>

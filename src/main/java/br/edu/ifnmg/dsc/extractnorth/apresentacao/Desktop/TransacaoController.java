@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.google.inject.Inject;
 
+import br.edu.ifnmg.dsc.extractnorth.entidades.Fornecedor;
 import br.edu.ifnmg.dsc.extractnorth.entidades.Produto;
-import br.edu.ifnmg.dsc.extractnorth.servicos.ProdutoRepositorio;
+import br.edu.ifnmg.dsc.extractnorth.entidades.TransacaoFinanceira;
+import br.edu.ifnmg.dsc.extractnorth.servicos.TransacaoRepositorio;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -18,51 +20,63 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.cell.PropertyValueFactory;
 import net.rgielen.fxweaver.core.FxmlView;
 
 @Service
-@FxmlView("ProdutosView.fxml")
-public class ProdutoController extends Controller {
+@FxmlView("TransacoesView.fxml")
+public class TransacaoController extends Controller {
 
-  private Produto entidade;
+  private TransacaoFinanceira entidade;
 
   @Inject
-  ProdutoRepositorio produtos;
+  TransacaoRepositorio transacoes;
 
   @Autowired
-  private ProdutoRepositorio repositorio;
+  private TransacaoRepositorio repositorio;
 
   @FXML
-  private TextField txtProdutoBusca;
+  private TextField txttransacaoBusca;
 
   @FXML
-  private TableView<Produto> tblBusca;
+  private TableView<TransacaoFinanceira> tblBusca;
 
   @FXML
-  private TextField txtnomeProdutos;
+  private TextField txtidentificador;
 
   @FXML
-  private TextField txtprecoProdutos;
+  private TextField txtformaPagamento;
 
   @FXML
-  private TextField txtpreco2Produtos;
+  private TextField txtitens;
 
   @FXML
-  private TextField quantidadeProdutos;
+  private TextField txtestoque;
 
   @FXML
-  private TextField txtloteProdutos;
+  private TextField txtcomprador;
 
   @FXML
-  private TextField txtdescricaoProdutos;
+  private TextField txtvendedor;
+
+  @FXML
+  private TextField txtprecoTotal;
+
+  @FXML
+  private TextField txttipo;
+
+  @FXML
+  private TextField txtstatus;
+
+  @FXML
+  private TextField btnCadastrar;
 
   @FXML
   private TabPane abas;
 
-  public ProdutoController() {
+  public TransacaoController() {
 
   }
 
@@ -80,41 +94,39 @@ public class ProdutoController extends Controller {
   private void configurarTabela() {
 
     tblBusca.getColumns().removeAll(tblBusca.getColumns());
-    TableColumn<Produto, String> nome = new TableColumn<>("Nome");
-
+    TableColumn<TransacaoFinanceira, String> nome = new TableColumn<>("Identificador");
     nome.setCellValueFactory(
-        new PropertyValueFactory<>("nome"));
+        new PropertyValueFactory<>("Identificador"));
 
     tblBusca.getColumns().add(nome);
 
     // Confirugar o modo de seleção
 
-    TableViewSelectionModel<Produto> selectionModel = tblBusca.getSelectionModel();
+    TableViewSelectionModel<TransacaoFinanceira> selectionModel = tblBusca.getSelectionModel();
 
     selectionModel.setSelectionMode(SelectionMode.SINGLE);
 
     tblBusca.setSelectionModel(selectionModel);
   }
 
-  public Produto getEntidade() {
+  public TransacaoFinanceira getEntidade() {
     return entidade;
   }
 
-  public void setEntidade(Produto entidade) {
+  public void setEntidade(TransacaoFinanceira entidade) {
     this.entidade = entidade;
   }
 
   public void carregarCampos() {
-    txtnomeProdutos.setText(entidade.getNome());
-    txtprecoProdutos.setText(Double.toString(entidade.getPrecoCompra()));
-    txtpreco2Produtos.setText(Double.toString(entidade.getPrecoVenda()));
+    txtidentificador.setText(entidade.getIdentificador());
+    txtformaPagamento.setText(entidade.getFormaPg().toString());
+    txtstatus.setText(entidade.getStatus().toString());
+
   }
 
   public void carregarEntidade() {
-    entidade.setNome(txtnomeProdutos.getText());
-    entidade.setLote(null);
-    entidade.setPrecoCompra(0);
-    entidade.setPrecoVenda(0);
+    entidade.setIdentificador(entidade.getIdentificador());
+
   }
 
   @FXML
@@ -137,16 +149,17 @@ public class ProdutoController extends Controller {
       Alert confirmacao = new Alert(AlertType.INFORMATION, "Operação cancelada! ", ButtonType.OK);
       confirmacao.showAndWait();
     }
+
   }
 
   @FXML
   public void buscar(Event e) {
 
-    Produto filtro = new Produto();
+    TransacaoFinanceira filtro = new TransacaoFinanceira();
 
-    filtro.setNome(txtnomeProdutos.getText());
+    filtro.setIdentificador(txtidentificador.getText());
 
-    List<Produto> resultado = repositorio.Buscar(filtro);
+    List<TransacaoFinanceira> resultado = repositorio.Buscar(filtro);
 
     tblBusca.getItems().removeAll(tblBusca.getItems());
     tblBusca.getItems().addAll(resultado);
@@ -154,7 +167,7 @@ public class ProdutoController extends Controller {
 
   @FXML
   public void editar(Event e) {
-    setEntidade((Produto) tblBusca.getSelectionModel().getSelectedItem());
+    setEntidade((TransacaoFinanceira) tblBusca.getSelectionModel().getSelectedItem());
     carregarCampos();
     abas.getTabs().get(1).setDisable(false);
     abas.getSelectionModel().select(1);
@@ -196,19 +209,23 @@ public class ProdutoController extends Controller {
   }
 
   @FXML
-  public void cadastrarnovoProduto(Event e) {
-    String novoProduto = txtnomeProdutos.getText();
+  public void cadastrarnovaTransacao(Event e) {
+    String novaTransacao = txtidentificador.getText();
 
-    if (produtos.Cadastrar(novoProduto)) {
+    if (transacoes.Cadastrar(novaTransacao)) {
       Alert alert = new Alert(AlertType.INFORMATION, "Produto Cadastrado com SUCESSO ! ", ButtonType.OK);
       alert.showAndWait();
 
-      txtnomeProdutos.clear();
+      txtidentificador.clear();
+      
     } else {
       Alert alert = new Alert(AlertType.ERROR, "Erro ao cadastrar Produto !", ButtonType.OK);
       alert.showAndWait();
 
     }
+  }
+
+  private void txtidentirear() {
   }
 
 }

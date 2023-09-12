@@ -49,4 +49,9 @@ public class MenuController extends Controller {
     carregarScene(principal, ProdutoController.class);
   }
 
+  @FXML
+  public void telaTransacoes(Event e) {
+    carregarScene(principal, TransacaoController.class);
+  }
+
 }
