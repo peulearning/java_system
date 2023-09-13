@@ -69,9 +69,9 @@
                      <children>
                         <Label layoutX="70.0" layoutY="14.0" text="Codigo:" />
                         <Label fx:id="lblId" layoutX="138.0" layoutY="14.0" prefHeight="18.0" prefWidth="282.0" />
-                        <Label layoutX="82.0" layoutY="56.0" text="Login:" />
+                        <Label layoutX="82.0" layoutY="56.0" text="Nome:" />
                         <TextField fx:id="txtLogin" layoutX="138.0" layoutY="52.0" prefHeight="26.0" prefWidth="283.0" />
-                        <Label layoutX="80.0" layoutY="107.0" text="Senha:" />
+                        <Label layoutX="80.0" layoutY="107.0" text="CPF:" />
                         <PasswordField fx:id="pwdSenha" layoutX="141.0" layoutY="103.0" prefHeight="26.0" prefWidth="287.0" />
                         <Separator layoutX="29.0" layoutY="251.0" prefHeight="7.0" prefWidth="542.0" />
                         <Button fx:id="btnSalvar" layoutX="198.0" layoutY="280.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />

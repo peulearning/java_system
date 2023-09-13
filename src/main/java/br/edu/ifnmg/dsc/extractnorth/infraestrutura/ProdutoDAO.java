@@ -59,12 +59,12 @@ public class ProdutoDAO extends DAO<Produto> implements ProdutoRepositorio {
     try {
       String jpql = "select p from Produto p";
 
-      if (!filtro.getLote().isEmpty()) {
-        jpql += "WHERE p.lote like :lote";
+      if (!filtro.getNome().isEmpty()) {
+        jpql += "WHERE p.nome like :nome";
       }
       Query consulta = getManager().createQuery(jpql);
-      if (!filtro.getLote().isEmpty()) {
-        consulta.setParameter("Lote", filtro.getLote());
+      if (!filtro.getNome().isEmpty()) {
+        consulta.setParameter("nome", filtro.getNome());
       }
       return consulta.getResultList();
 
