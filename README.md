@@ -1,10 +1,13 @@
-# Projeto utilizado na Graduação de Sistemas de Informação -  Disciplina DSC
+#  Sistema de Extrativismo -  Disciplina DSC
 
-## Visão geral
+##   🚀  Visão geral
 
-O projeto é uma aplicação back-end com objetivo de demonstrar a produtividade de construir um pequeno MicroServiço utilizando os frameworks [Spring Boot](https://projects.spring.io/spring-boot), [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html) e [Spring Data](http://projects.spring.io/spring-data) em conjunto.
+O ponta-pé inicial foi documentação  até a estruturação do sistema. [Documentação](https://docs.google.com/document/d/1yQAIpkmWBh9womlmaafYYkeSaP_vBcY7/edit?usp=sharing&ouid=104763281957749693741&rtpof=true&sd=true).
 
-## Tecnologias
+
+O projeto é uma aplicação back-end com objetivo de demonstrar a produtividade de construir um pequeno MicroServiço utilizando os frameworks [Spring Boot](https://projects.spring.io/spring-boot), [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html) e [Spring Data](http://projects.spring.io/spring-data) , [SceneBuilder](https://gluonhq.com/products/scene-builder/) em conjunto 
+
+## 📦  Tecnologias
 
 - [Spring Boot](https://projects.spring.io/spring-boot) é uma ferramenta que simplifica a configuração e execução de aplicações Java stand-alone,  com conceitos de dependências “starters”, auto configuração e servlet container embutidos é proporcionado uma grande produtividade desde o start-up da aplicação até sua ida a produção.
  
