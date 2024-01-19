@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.google.inject.Inject;
 
-import br.edu.ifnmg.dsc.extractnorth.entidades.Fornecedor;
-import br.edu.ifnmg.dsc.extractnorth.entidades.Produto;
 import br.edu.ifnmg.dsc.extractnorth.entidades.TransacaoFinanceira;
 import br.edu.ifnmg.dsc.extractnorth.servicos.TransacaoRepositorio;
 import javafx.event.Event;
@@ -217,15 +215,12 @@ public class TransacaoController extends Controller {
       alert.showAndWait();
 
       txtidentificador.clear();
-      
+
     } else {
       Alert alert = new Alert(AlertType.ERROR, "Erro ao cadastrar Produto !", ButtonType.OK);
       alert.showAndWait();
 
     }
-  }
-
-  private void txtidentirear() {
   }
 
 }
